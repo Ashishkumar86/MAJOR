@@ -10,16 +10,16 @@ import courseRouter from './route/courseRoute.js'
 import paymentRouter from './route/paymentRoute.js'
 import reviewRouter from './route/reviewRoute.js'
 
-const port = process.env.PORT || 8000
-const app = express()
-
-app.use(express.json())
-app.use(cookieParser())
-
 app.use(cors({
-    origin: "https://major-1-wr6v.onrender.com",
-    credentials: true
+    origin: [
+        "http://localhost:5173",
+        "https://major-1-wr6v.onrender.com",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }))
+app.options("*", cors())
 
 app.use("/api/auth", authRouter)
 app.use("/api/user", userRouter)

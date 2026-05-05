@@ -16,7 +16,7 @@ export const searchWithAi = async (req, res) => {
         console.log("PUBLISHED:", all.filter(c => c.isPublished).length)
 
         const ai = new GoogleGenAI({
-            apikey:process.env.GEMINI_API_KEY
+            apiKey:process.env.GEMINI_API_KEY
         });
 
         const prompt = `You are an inteligent assistant for an LMS plateform, A user will type any query about what they want to learn. Your task is to understand the intent and return one **most relevent keyword** from the following list of the course categories and levels:
@@ -39,7 +39,7 @@ export const searchWithAi = async (req, res) => {
         
         Query: ${input}`
         const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-2.0-flash,
     contents: prompt,
   });
 

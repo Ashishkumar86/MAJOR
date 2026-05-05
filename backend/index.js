@@ -10,6 +10,12 @@ import courseRouter from './route/courseRoute.js'
 import paymentRouter from './route/paymentRoute.js'
 import reviewRouter from './route/reviewRoute.js'
 
+const port = process.env.PORT || 8000  // ← YOU REMOVED THIS
+const app = express()                   // ← YOU REMOVED THIS
+
+app.use(express.json())                 // ← YOU REMOVED THIS
+app.use(cookieParser())                 // ← YOU REMOVED THIS
+
 app.use(cors({
     origin: [
         "http://localhost:5173",
@@ -24,9 +30,8 @@ app.options("*", cors())
 app.use("/api/auth", authRouter)
 app.use("/api/user", userRouter)
 app.use("/api/course", courseRouter)
-app.use("/api/order",paymentRouter)
-app.use("/api/review",reviewRouter)
-
+app.use("/api/order", paymentRouter)
+app.use("/api/review", reviewRouter)
 
 app.get("/", (req, res) => {
     res.send("hello from server")

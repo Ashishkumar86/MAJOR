@@ -10,11 +10,11 @@ import courseRouter from './route/courseRoute.js'
 import paymentRouter from './route/paymentRoute.js'
 import reviewRouter from './route/reviewRoute.js'
 
-const port = process.env.PORT || 8000  // ← YOU REMOVED THIS
-const app = express()                   // ← YOU REMOVED THIS
+const port = process.env.PORT || 8000  
+const app = express()                  
 
-app.use(express.json())                 // ← YOU REMOVED THIS
-app.use(cookieParser())                 // ← YOU REMOVED THIS
+app.use(express.json())                
+app.use(cookieParser())                 
 
 app.use(cors({
     origin: [

@@ -26,7 +26,7 @@ import MyEnrolledCourses from "./pages/MyEnrolledCourses";
 import useGetAllReviews from "./customHooks/getAllReviews";
 import SearchWithAi from "./pages/SearchWithAi";
 
-export const serverUrl = "http://localhost:8000";
+export const serverUrl = "https://major-ijxr.onrender.com";
 
 function App() {
   useGetPublishedCourse();
